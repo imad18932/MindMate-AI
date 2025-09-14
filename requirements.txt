@@ -3,4 +3,5 @@ requests
 gtts
 textblob
 Pillow
+waitress
 nltk
