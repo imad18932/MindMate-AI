@@ -2,7 +2,7 @@
 # MindMate AI — Final, Polished Super App
 # Save this file and run: python mindmate_ai_super_app_final.py
 # Recommended packages:
-#   gradio requests gtts textblob pillow nltk
+#   gradio requests gtts textblob pillow nltk
 
 import os
 import re
@@ -124,7 +124,6 @@ CHATBOT_REPLIES = [
     "Small steps matter. What's one reasonable step you can take after this chat?",
     "If you're tired, soft rest counts as a helpful action. Permission: allowed.",
     "You’ve handled hard things before — what strength did you use that time?",
-    "I can support you with a short micro-plan. Would you like that?",
     "A short walk, a drink of water, or a five-minute stretch can help reset.",
     "Be kind to yourself — how would you comfort a friend in this moment?",
     "If you want, I can guide you through a calming breathing exercise now.",
@@ -414,7 +413,7 @@ def growth_report():
         "### Daily Growth Report ✨\n"
         f"**Mood trend:** {trend}\n"
         f"**Common themes:** {common}\n"
-        "**3 Focus Goals:**\n"
+        f"**3 Focus Goals:**\n"
         f"1. {goals[0]}\n"
         f"2. {goals[1]}\n"
         f"3. {goals[2]}"
@@ -903,6 +902,6 @@ def find_free_port(preferred=7860):
         return port
 
 if __name__ == "__main__":
-    port = find_free_port(7860)
-    print(f"Launching MindMate AI on http://127.0.0.1:{port}")
-    demo.launch(server_name="127.0.0.1", server_port=port, share=False)
+    port = int(os.environ.get("PORT", 7860))  # Get port from environment variable
+    print(f"Launching MindMate AI on http://0.0.0.0:{port}")
+    demo.launch(server_name="0.0.0.0", server_port=port, share=False)
